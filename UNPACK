@@ -1,0 +1,19 @@
+UNPACK.BAT
+md templates
+md static
+move S1_dummy.html templates
+curl https://user-images.githubusercontent.com/11156244/281251426-1737b31d-d813-4913-aa99-0d6cf490e757.png --ssl-no-revoke --output static/sandwich.png
+virtualenv venv
+call venv\Scripts\activate
+pip install flask requests beautifulsoup4
+python S1_http.py
+
+#UNPACK.SH
+mkdir -m 777 templates
+mkdir -m 777 static
+mv ./S1_dummy.html ./templates
+curl https://user-images.githubusercontent.com/11156244/281251426-1737b31d-d813-4913-aa99-0d6cf490e757.png --ssl-no-revoke --output ./static/sandwich.png
+virtualenv venv
+source "venv/bin/activate"
+pip install flask requests beautifulsoup4
+python S1_http.py
