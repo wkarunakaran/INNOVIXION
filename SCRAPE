@@ -1,0 +1,18 @@
+# (A) LOAD REQUIRED MODULES
+import requests
+from bs4 import BeautifulSoup
+
+# (B) GET HTML
+html = requests.get("http://localhost").text
+# print(html)
+
+# (C) HTML PARSER
+soup = BeautifulSoup(html, "html.parser")
+name = soup.find("div", {"id": "pName"}).text
+desc = soup.find("div", {"id": "pDesc"}).text
+price = soup.find("div", {"id": "pPrice"}).text
+image = soup.find("img", {"id": "pImg"})["src"]
+print(name)
+print(desc)
+print(price)
+print(image)
